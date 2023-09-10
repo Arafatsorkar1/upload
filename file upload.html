@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload</title>
+    <style>
+        /* Style for the file input element */
+        .custom-file-input {
+            width: 100px;
+            height: 100px;
+            opacity: 0;
+            overflow: hidden;
+            position: absolute;
+            z-index: -1;
+        }
+
+        .custom-file-label {
+            width: 100px;
+            height: 100px;
+            background-color: #f0f0f0;
+            text-align: center;
+            line-height: 100px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <input type="file" class="custom-file-input" id="fileInput">
+    <label class="custom-file-label" for="fileInput">Upload</label>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Handle file input change event
+            $('#fileInput').change(function() {
+                // Get the selected file name
+                var fileName = $(this).val().split('\\').pop();
+                // Display the file name in the label
+                $('.custom-file-label').html(fileName);
+            });
+        });
+    </script>
+</body>
+</html>
